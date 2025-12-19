@@ -1,16 +1,15 @@
-### SYNCHRONOUS-UP-COUNTER
+# SYNCHRONOUS-UP & DOWN-COUNTER
+# Developed By: BALAJI B M
+# Ref.No: 25016669
 
-**AIM:**
+## AIM:
+To implement 4 bit synchronous up and down counter and validate functionality.
 
-To implement 4 bit synchronous up counter and validate functionality.
-
-**SOFTWARE REQUIRED:**
-
+## SOFTWARE REQUIRED:
 Quartus prime
 
-**THEORY**
-
-**4 bit synchronous UP Counter**
+## THEORY:
+### 4 bit synchronous UP Counter
 
 If we enable each J-K flip-flop to toggle based on whether or not all preceding flip-flop outputs (Q) are “high,” we can obtain the same counting sequence as the asynchronous circuit without the ripple effect, since each flip-flop in this circuit will be clocked at exactly the same time:
 
@@ -26,21 +25,58 @@ Since the first (LSB) flip-flop needs to toggle at every clock pulse, its J and 
 The next flip-flop need only “recognize” that the first flip-flop’s Q output is high to be made ready to toggle, so no AND gate is needed.
 However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
 
-**Procedure**
+### 4 bit synchronous DOWN Counter
+In a 4-bit synchronous DOWN counter using J-K flip-flops, all flip-flops share the same clock, so they change state at the same time, eliminating ripple delay. The least significant flip-flop (Q0) toggles on every clock pulse. Each higher-order flip-flop toggles only when all preceding (lower-order) outputs are LOW (0). This is done by setting J = K = 1 for a flip-flop only when the required lower bits are 0. Because all flip-flops are clocked simultaneously and the toggle conditions are properly controlled, the counter counts downward in the correct sequence without ripple effect.
 
-/* write all the steps invloved */
+<img width="943" height="617" alt="image" src="https://github.com/user-attachments/assets/2701e858-0d24-4229-8a94-6d44455b2701" />
 
-**PROGRAM**
+<img width="1014" height="627" alt="image" src="https://github.com/user-attachments/assets/a27aaa99-063f-4cdc-9fcd-aab34b2ddf8c" />
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+A 4-bit synchronous down counter is a digital circuit that reduces its output value by one on every clock pulse. Based on the logic in the diagram, here are the key points to understand how it works: Synchronous Operation: Unlike ripple counters, all four flip-flops (DFF0–DFF3) are connected to the same common clock signal (clk). This ensures that all bits change state at exactly the same time, preventing timing glitches. The Decrement Logic: To count "down," the circuit uses the inverted outputs (usually labeled \bar{Q}) or specific logic gates (AND/XOR) to determine when the next bit should toggle. A bit toggles only when all the preceding bits (to its right) are 0. Example: To go from 1000 (8) to 0111 (7), the three lower bits must all flip because they were all zeros. Active-Low Reset (rstn): The "bubble" on the reset pin indicates it is active-low. When this signal drops to 0, the counter immediately forces the output to a starting state (usually 1111 or 15 in a down counter). Counting Range: Since it is a 4-bit counter, it has 2^4 = 16 possible states. It counts from 15 down to 0 (1111 \rightarrow 0000) and then "rolls over" back to 15 to start again. Output Bus: The output is shown as a single line with a diagonal slash and the number 4, signifying it is a 4-bit wide bus containing the values of all four flip-flops.
 
-Developed by: RegisterNumber:
-*/
+## Procedure:
+1.  Open Quartus Prime and create a new project for the synchronous counter design.
+2.  Write the Verilog HDL code for the 4-bit synchronous UP counter and DOWN counter using a common clock and reset.
+3.  Compile the program and check for syntax errors and successful compilation.
+4.  Generate and verify the RTL schematic to confirm correct counter logic implementation.
+5.  Run the functional simulation, observe the timing diagrams, and verify correct up and down counting operation.
 
-**RTL LOGIC UP COUNTER**
+## PROGRAM:
+### UP COUNTER
+```
+module up(out,clk,rst);
+input clk,rst;
+output reg [3:0]out;
+always @ (posedge clk)
+begin
+   if(rst)
+     out<=0;
+   else 
+     out <= out+1;
+end
+endmodule
+```
 
-**TIMING DIAGRAM FOR IP COUNTER**
+### DOWN COUNTER
+```
+module down(out,clk,rst);
+input clk,rst;
+output reg [3:0]out;
+always @ (posedge clk)
+begin
+   if(rst)
+     out<=0;
+   else 
+     out <= out-1;
+end
+endmodule
+```
+## RTL LOGIC UP COUNTER:
 
-**TRUTH TABLE**
+## TIMING DIAGRAM FOR IP COUNTER:
 
-**RESULTS**
+## TRUTH TABLE:
+<img width="1034" height="501" alt="image" src="https://github.com/user-attachments/assets/22d6641e-8313-40eb-93d8-12870f51ae52" />
+
+## RESULTS:
+Thus the implementation of 4 bit synchronous up counter and down counter and the validate functionality is successful.
