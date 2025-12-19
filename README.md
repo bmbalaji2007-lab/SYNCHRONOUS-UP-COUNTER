@@ -71,9 +71,20 @@ begin
 end
 endmodule
 ```
+
 ## RTL LOGIC UP COUNTER:
+### UP COUNTER
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c24e31a5-0bf9-4083-90a7-df978a2166cc" />
+
+### DOWN COUNTER
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6834be68-407e-447d-ae00-d9a1f88c4403" />
 
 ## TIMING DIAGRAM FOR IP COUNTER:
+### UP COUNTER
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/abcf579b-77f3-469a-8bfd-136385787721" />
+
+### DOWN COUNTER
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9b16b36f-3576-4dd6-a7a1-c7c554caa300" />
 
 ## TRUTH TABLE:
 <img width="1034" height="501" alt="image" src="https://github.com/user-attachments/assets/22d6641e-8313-40eb-93d8-12870f51ae52" />
